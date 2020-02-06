@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>My To Do List</title>
+</head>
+
+<body>
+    <% comments.forEach( (comment)=>{ %>
+          
+        <div> <%= comment.title %></div>
+        <div><%= comment.text %></div>
+        <div><%= comment.date %></div>
+       <a href="/update/<%=comment._id%>">Update</a>
+       <a href="/delete/<%=comment._id%>"> Delete</a>
+<%  }) %>
+
+
+<div>
+      <form action="/createcomment" method="post">
+       
+       <input type="text" name="title" id="">
+       <input type="text" name="text" id="">
+      <button type="submit">Post comment</button>
+
+      </form>
+
+</div>
+
+</body>
+</html>
