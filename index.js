@@ -1,7 +1,7 @@
 // Required npms & ejs & router
 const express = require("express"); 
 const mongoose =require("mongoose"); 
-const toDoRouter = require("./router/toDoRouter");
+const router = require("./router/toDoRouter.js");
 const app = express(); 
 
 //connection setup
@@ -9,14 +9,13 @@ const config = require("./config/config.js")
 
 //middleware
 app.use(express.urlencoded({extended:true}))
-
 app.set("view engine", "ejs");
  
  //router 
-app.use(toDoRouter);
+app.use(router);
 
 //localhost
-const port = process.env.PORT || 8005;
+const port = process.env.PORT || 8004;
 const options ={
     useUnifiedTopology: true, 
     useNewUrlParser: true
