@@ -1,7 +1,7 @@
 // Required npms & ejs & router
 const express = require("express"); 
 const mongoose =require("mongoose"); 
-const toDoRouter = require("./router/comments");
+const toDoRouter = require("./router/toDoRouter");
 const app = express(); 
 
 //connection setup
