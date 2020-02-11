@@ -1,0 +1,9 @@
+<form action="/update/:id"  method="post">
+ 
+    <input type="text" name="title" id="" value="<%=editTask.title%>" required>
+    <input type="text" name="text" id="" value="<%=editTask.text%>" required>
+    
+   <input type="text" name="_id" value="<%=editTask._id%>" hidden>
+   <button type="submit">Update</button>
+    
+   </form>

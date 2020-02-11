@@ -6,9 +6,12 @@
 </head>
 
 <body>
+
+    <div class= "header">My To Do List</div>
+
     <% comments.forEach( (comment)=>{ %>
           
-        <div> <%= comment.title %></div>
+        <div><h4> <%= comment.title %></h4></div>
         <div><%= comment.text %></div>
         <div><%= comment.date %></div>
        <a href="/update/<%=comment._id%>">Update</a>
@@ -21,7 +24,7 @@
        
        <input type="text" name="title" id="">
        <input type="text" name="text" id="">
-      <button type="submit">Post comment</button>
+      <button type="submit">Add Task</button>
 
       </form>
 

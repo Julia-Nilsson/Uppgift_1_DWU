@@ -5,7 +5,7 @@ const schemaToDo = new mongoose.Schema(
     {
         title: {type:String, required: true},
         text:String,
-        date: { type: Date,  default: Date.now }, 
+        date: { type: Date,  default: Date.now() }, 
         completion: Boolean,
         priority: {
             type: Number,
@@ -15,6 +15,6 @@ const schemaToDo = new mongoose.Schema(
     }
 )
 
-const toDo = mongoose.model("toDo", schemaToDo);
+const ToDo = mongoose.model("ToDo", schemaToDo);
 
-module.exports = toDo;
+module.exports = ToDo;
