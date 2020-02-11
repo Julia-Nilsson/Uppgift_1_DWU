@@ -1,4 +1,4 @@
-// Required npms & ejs
+// Required npms & ejs & router
 const express = require("express"); 
 const mongoose =require("mongoose"); 
 const toDoRouter = require("./router/comments");
@@ -6,7 +6,6 @@ const app = express();
 
 //connection setup
 const config = require("./config/config.js")
-//mongoose.connect(config.databaseUrl);
 
 //middleware
 app.use(express.urlencoded({extended:true}))
