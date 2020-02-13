@@ -3,42 +3,67 @@
 <head>
     <meta charset="utf-8">
     <title>My To Do List</title>
+
+    <!---Style sheets-->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" href="../public/main.css">
+
 </head>
 
 <body>
 
-    <div class= "header">
-        <h2>My To Do List</h2>
-    </div>
-    
-    <div class= "addItems">
-        <div class = "formTitle">
-            <h4> Add Items to the List</h4>
+    <div class= "container">
+
+        <div class="row justify-content-center">
+        <div class="col-12 ">
+            <div class= "header pb-3 text-center">
+                <h2>My To Do List</h2>
+            </div>
+        </div>
         </div>
 
-        <form action="/addTask" method="post">
-            
-            <label>Title<input type="text" name="title" id=""></label>
-            <label>Description<input type="text" name="text" id=""></label>
-            <button type="submit">Add Task</button>
-            
-        </form>
-        
-    </div>
+        <div class="row">
     
-    <div class= "todoItems">
-    <div class= "listTitle">
-    <h4>What's On My To Do List</h4>
-    </div>
-    <% comments.forEach( (comment)=>{ %>
+        <div class= "col-12 justify-content-center addItems ">
+            
+            <div class = "formTitle text-center pb-2">
+                <h4> Add Items to the List</h4>
+            </div>
+            
+            <div class=" text-center justify-content-center">
+
+                <form action="/addTask" method="post">
+                    <div class="form-group">
+                        <label class="w-100">Title<input type="text" name="title" id="" class="form-control"></label>
+                    </div>
+                    <div class="form-group">
+                        <label class="w-100">Description<input type="text" name="text" id="" class="form-control" rows="3"></label>
+                    </div>
+                    <div class="form-group">
+                        <button type="submit" class="btn btn-dark">Add Task</button>
+                    </div>
+            </div>
+                </form>
+        
+        </div>
+        </div>
+    
+        <div class="row">
+        <div class= "col-12 justify-content-center todoItems">
+            <div class= "listTitle">
+                <h4>What's On My To Do List</h4>
+            </div>
+        <% comments.forEach( (comment)=>{ %>
           
-        <div><h5> <%= comment.title %></h5></div>
-        <div><%= comment.text %></div>
-        <div><%= comment.date %></div>
-        <a href="/update/<%=comment._id%>">Edit</a>
-        <a href="/delete/<%=comment._id%>"> Delete</a>
-    <%  }) %>
+            <div><h5> <%= comment.title %></h5></div>
+            <div><%= comment.text %></div>
+            <div><%= comment.date %></div>
+            <a href="/update/<%=comment._id%>">Edit</a>
+            <a href="/delete/<%=comment._id%>"> Delete</a>
+        <%  }) %>
+        </div> 
     </div>
 
+    </div>
 </body>
 </html>
