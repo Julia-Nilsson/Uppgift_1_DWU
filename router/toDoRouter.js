@@ -2,9 +2,7 @@ const express = require("express");
 const ToDo = require("../model/todo.js");
 const router = express.Router();
 
-
-
-// Visa det som finns på todo-listan - /comment
+// VISA det som finns på todo-listan - /comment
 
 router.get("/comment", async (req, res) => {
     
@@ -12,27 +10,27 @@ router.get("/comment", async (req, res) => {
     res.render("comment", {comments});
 })
 
-//För att kunna skriva todo-items i formuläret - /createcomment
+// POSTA NYA TO-DO's formuläret - /addTask
 
-router.post("/createcomment", async (req, res)=>
+router.post("/addTask", async (req, res)=>
     {
 
+    // Basera ny task på schemat ToDo i todo.js
     const toDoItem = new ToDo
         ({
         title:req.body.title,
         text:req.body.text,
         })
 
-        await toDoItem.save( (error, success)=>{
-            if(error) {
-          res.send(error.message) 
-            }
-          else
+    // Eftersom postfunktionen är asynkron väntar funktionen på toDoItem, sparar den och skickar användaren till /comment
+        await toDoItem.save( ()=>{
+           
           res.redirect("/comment")
             
-        } );
+          } );
     });
-// Ta bort todo-item
+
+// TA BORT todo-item
 router.get("/delete/:id", async (req, res)=>{
     
     await ToDo
@@ -40,20 +38,21 @@ router.get("/delete/:id", async (req, res)=>{
     res.redirect("/comment")
     })
 
-    //Uppdatera item på todo-listan
+    // ÄNDRA item på todo-listan
 
     router.get("/update/:id", async (req, res)=>{
     
         // Hitta todo via id
         const editTask= await ToDo.findById({_id:req.params.id})
+        //Rendera edit-sidan
         res.render("edit", {editTask})
     })
     
     router.post("/update/:id", async(req, res)=>{
     
-    //updateOne för att kunna uppdatera en todo-item
+    //updateOne för att kunna uppdatera en specifik todo-item
        await Comment.updateOne({_id:req.body._id},
-        {$set: {text: req.body.title, text: req.body.text}}, {runValidators:true}) 
+        {$set: {title: req.body.title, text: req.body.text}}, {runValidators:true}) 
         res.redirect("/comment")
    
      })

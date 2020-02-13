@@ -7,28 +7,38 @@
 
 <body>
 
-    <div class= "header">My To Do List</div>
+    <div class= "header">
+        <h2>My To Do List</h2>
+    </div>
+    
+    <div class= "addItems">
+        <div class = "formTitle">
+            <h4> Add Items to the List</h4>
+        </div>
 
+        <form action="/addTask" method="post">
+            
+            <label>Title<input type="text" name="title" id=""></label>
+            <label>Description<input type="text" name="text" id=""></label>
+            <button type="submit">Add Task</button>
+            
+        </form>
+        
+    </div>
+    
+    <div class= "todoItems">
+    <div class= "listTitle">
+    <h4>What's On My To Do List</h4>
+    </div>
     <% comments.forEach( (comment)=>{ %>
           
-        <div><h4> <%= comment.title %></h4></div>
+        <div><h5> <%= comment.title %></h5></div>
         <div><%= comment.text %></div>
         <div><%= comment.date %></div>
-       <a href="/update/<%=comment._id%>">Update</a>
-       <a href="/delete/<%=comment._id%>"> Delete</a>
-<%  }) %>
-
-
-<div>
-      <form action="/createcomment" method="post">
-       
-       <input type="text" name="title" id="">
-       <input type="text" name="text" id="">
-      <button type="submit">Add Task</button>
-
-      </form>
-
-</div>
+        <a href="/update/<%=comment._id%>">Edit</a>
+        <a href="/delete/<%=comment._id%>"> Delete</a>
+    <%  }) %>
+    </div>
 
 </body>
 </html>

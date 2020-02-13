@@ -1,9 +1,29 @@
-<form action="/update/:id"  method="post">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>My To Do List</title>
+</head>
+
+<body>
+
+    <div class= "header">
+        <h2>My To Do List</h2>
+    </div>
+
+    <div class ="editTitle">
+    <h4> Edit Your Task </h4>
+    </div>
+
+    <form action="/update/:id"  method="post">
  
-    <input type="text" name="title" id="" value="<%=editTask.title%>" required>
-    <input type="text" name="text" id="" value="<%=editTask.text%>" required>
+        <label>Title<input type="text" name="title" id="" value="<%=editTask.title%>" required></label>
+        <label>Description<input type="text" name="text" id="" value="<%=editTask.text%>" required></label>
     
-   <input type="text" name="_id" value="<%=editTask._id%>" hidden>
-   <button type="submit">Update</button>
+        <input type="text" name="_id" value="<%=editTask._id%>" hidden>
+        <button type="submit">Update</button>
     
-   </form>
+    </form>
+
+</body>
+</html>
