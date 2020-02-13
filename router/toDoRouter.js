@@ -50,8 +50,8 @@ router.get("/delete/:id", async (req, res)=>{
     
     router.post("/update/:id", async(req, res)=>{
     
-    //updateOne för att kunna uppdatera en specifik todo-item
-       await Comment.updateOne({_id:req.body._id},
+    //updateOne uppdaterar en specifik todo-item
+       await ToDo.updateOne({_id:req.body._id},
         {$set: {title: req.body.title, text: req.body.text}}, {runValidators:true}) 
         res.redirect("/comment")
    
