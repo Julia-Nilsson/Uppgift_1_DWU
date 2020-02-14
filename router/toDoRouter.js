@@ -54,7 +54,6 @@ router.get("/delete/:id", async (req, res)=>{
        await ToDo.updateOne({_id:req.body._id},
         {$set: {title: req.body.title, text: req.body.text}}, {runValidators:true}) 
         res.redirect("/comment")
-   
-     })
+        })
 
     module.exports = router;

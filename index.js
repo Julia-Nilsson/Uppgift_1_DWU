@@ -13,7 +13,7 @@ const config = require("./config/config.js")
 //middleware
 app.use(express.urlencoded({extended:true}))
 
-// sass middleware
+// sass middleware - fungerar inte för mig så använde vanlig css, men vill gärna veta vad som blev fel!
 app.use(sassMiddleware({
     src: path.join(__dirname, "scss"), 
     dest: path.join(__dirname, "public"),
