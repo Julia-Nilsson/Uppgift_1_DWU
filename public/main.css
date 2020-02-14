@@ -1,0 +1,25 @@
+body {
+
+    font-family: 'Montserrat', sans-serif;
+    color: rgb(77, 77, 77);
+
+}
+
+h1 {
+
+    font-family: 'Indie Flower', cursive;
+    font-size: 4em;
+}
+
+.theDate {
+
+font-size: 0.8em;
+
+}
+
+.commentFrame {
+
+border: solid 1px;
+border-color: rgb(185, 185, 185);
+
+}

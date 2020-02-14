@@ -1,32 +1,10 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="utf-8">
-    <title>My To Do List</title>
+<!--Head & header-->
+<%- include("partial/head.ejs") %>
 
-    <!---Style sheets-->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-    <link rel="stylesheet" href="../public/main.css">
-
-</head>
-
-<body>
-
-    <div class= "container">
-
+<!--Edit Task-->
         <div class="row justify-content-center">
-        <div class="col-12 ">
-
-            <div class= "header text-center pb-3 pt-1">
-                <h2>My To Do List</h2>
-            </div>
-
-        </div>
-        </div>
-
-        <div class="row">
     
-        <div class= "col-12 justify-content-center changeItems ">
+        <div class= "col-sm-12 col-md-8 changeItems ">
 
             <div class ="editTitle text-center pb-2">
                 <h4> Edit Your Task </h4>
@@ -43,7 +21,7 @@
                 </div>
                     <input type="text" name="_id" value="<%=editTask._id%>" hidden>
                 <div class="form-group">
-                    <button type="submit" class="btn btn-dark">Update</button>
+                    <button type="submit" class="btn btn-dark w-50">Update</button>
                 </div>
         
             </form>
@@ -53,6 +31,9 @@
     </div>
 
     </div>
+
+<!--Footer-->
+    <%- include("partial/footer.ejs") %>
 
 </body>
 </html>

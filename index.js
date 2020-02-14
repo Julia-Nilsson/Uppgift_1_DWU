@@ -6,6 +6,7 @@ const sassMiddleware = require("node-sass-middleware");
 const path = require("path");
 const app = express(); 
 
+
 //connection setup
 const config = require("./config/config.js")
 
@@ -15,7 +16,8 @@ app.use(express.urlencoded({extended:true}))
 // sass middleware
 app.use(sassMiddleware({
     src: path.join(__dirname, "scss"), 
-    dest: path.join(__dirname, "public")
+    dest: path.join(__dirname, "public"),
+    prefix:  '/prefix'
     })
     )
    

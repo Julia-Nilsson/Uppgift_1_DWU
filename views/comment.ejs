@@ -1,30 +1,12 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="utf-8">
-    <title>My To Do List</title>
+<!--Head & header-->
 
-    <!---Style sheets-->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-    <link rel="stylesheet" href="../public/main.css">
+<%- include("partial/head.ejs") %>
 
-</head>
-
-<body>
-
-    <div class= "container">
+<!--Add to Todo-list-->
 
         <div class="row justify-content-center">
-        <div class="col-12 ">
-            <div class= "header pb-3 pt-1 text-center">
-                <h2>My To Do List</h2>
-            </div>
-        </div>
-        </div>
-
-        <div class="row">
     
-        <div class= "col-12 justify-content-center addItems ">
+        <div class= "col-sm-12 col-md-8 addItems ">
             
             <div class = "formTitle text-center pb-2">
                 <h4> Add Items to the List</h4>
@@ -40,30 +22,40 @@
                         <label class="w-100">Description<input type="text" name="text" id="" class="form-control" rows="3"></label>
                     </div>
                     <div class="form-group">
-                        <button type="submit" class="btn btn-dark">Add Task</button>
+                        <button type="submit" class="btn btn-dark w-50">Add Task</button>
                     </div>
             </div>
                 </form>
         
         </div>
         </div>
-    
-        <div class="row">
-        <div class= "col-12 justify-content-center todoItems">
-            <div class= "listTitle">
+
+        <!--Show To Do-list-->
+
+        <div class="row justify-content-center">
+        <div class= "col-sm-12 col-md-8 todoItems">
+            <div class= "listTitle text-center pb-4 pt-3">
                 <h4>What's On My To Do List</h4>
             </div>
         <% comments.forEach( (comment)=>{ %>
-          
+            <div class= "commentFrame px-2 pt-2 mb-2">
             <div><h5> <%= comment.title %></h5></div>
-            <div><%= comment.text %></div>
-            <div><%= comment.date %></div>
-            <a href="/update/<%=comment._id%>">Edit</a>
-            <a href="/delete/<%=comment._id%>"> Delete</a>
+            <div class = "theDescription pb-2"><%= comment.text %></div>
+            <div class ="theDate pb-2"><%= comment.date %></div>
+            <div class= "pb-2">
+                <a class="btn btn-outline-dark" href="/update/<%=comment._id%>">Edit</a>
+                <a class="btn btn-outline-danger" href="/delete/<%=comment._id%>"> Delete</a>
+                <button type = "button" class="btn btn-outline-secondary">Complete</button>
+            </div>
+            </div>
         <%  }) %>
         </div> 
-    </div>
+        </div>
 
     </div>
+
+<!--Footer-->
+    <%- include("partial/footer.ejs") %>
+
 </body>
 </html>

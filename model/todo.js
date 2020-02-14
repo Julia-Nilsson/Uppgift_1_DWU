@@ -6,7 +6,7 @@ const schemaToDo = new mongoose.Schema(
         title: {type:String, required: true},
         text:String,
         date: { type: Date,  default: Date.now() }, 
-        completion: Boolean,
+        completion: { type: Boolean, default: false },
         priority: {
             type: Number,
             min: 1,
